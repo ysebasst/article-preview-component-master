@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+:root {
+  --VeryDarkGrayishBlue: hsl(217, 19%, 35%);
+  --DesaturatedDarkBlue: hsl(214, 17%, 51%);
+  --GrayishBlue: hsl(212, 23%, 69%);
+  --LightGrayishBlue: hsl(210, 46%, 95%);
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+}
+
+main {
+  background-color: var(--LightGrayishBlue);
+  color: var(--VeryDarkGrayishBlue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 0 1.5rem;
+  max-width: 327px;
+  &-header {
+    height: 200px;
+    overflow: hidden;
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+  &-body {
+    &-content {
+      padding: 1rem 2rem;
+
+      &-title {
+        font-size: 0.95rem;
+        line-height: 1.5rem;
+        font-weight: 700;
+        margin-top: 1.25rem;
+      }
+      &-text {
+        color: var(--DesaturatedDarkBlue);
+        font-size: 0.78rem;
+        line-height: 1.75em;
+        margin: 0;
+      }
+    }
+    &-footer {
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .description {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        &-avatar {
+          display: block;
+          width: 40px;
+          border-radius: 50%;
+        }
+        &-info {
+          margin-left: 1rem;
+          .name {
+            font-size: 1em;
+            font-weight: 700;
+            margin: 0;
+            margin-bottom: 0.25rem;
+          }
+          .date {
+            color: var(--GrayishBlue);
+            font-size: 0.75rem;
+          }
+        }
+      }
+      .share {
+        flex: 1;
+        align-items: center;
+        display: none;
+        .share-title {
+          margin: 0;
+          color: var(--GrayishBlue);
+          text-transform: uppercase;
+          letter-spacing: 0.25rem;
+          font-weight: 500;
+          font-size: 0.75rem;
+        }
+        .share-social {
+          display: flex;
+          font-size: 1.25rem;
+          a {
+            color: white;
+            margin-left: 1rem;
+          }
+        }
+      }
+      .share-btn {
+        background-color: var(--LightGrayishBlue);
+        display: block;
+        cursor: pointer;
+        outline: none;
+        padding: 0.5rem;
+        border-radius: 50%;
+      }
+    }
+    #checkbox {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    &-body {
+      #checkbox:checked ~ .card-body-footer {
+        background-color: var(--VeryDarkGrayishBlue);
+        color: var(--LightGrayishBlue);
+        padding: 1rem 2rem;
+        .description {
+          display: none;
+        }
+        .share {
+          display: flex;
+        }
+        .share-btn {
+          background-color: var(--DesaturatedDarkBlue);
+          color: var(--LightGrayishBlue);
+          .icon-share {
+            fill: var(--LightGrayishBlue);
+          }
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    max-width: 730px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 285px 1fr;
+    &-header {
+      height: 280px;
+      img {
+        width: auto;
+        height: 280px;
+      }
+    }
+    &-body {
+      #checkbox:checked ~ .card-body-footer {
+        position: relative;
+        .share {
+          position: absolute;
+          right: 0px;
+          bottom: 120%;
+          padding: 0 2rem;
+          height: 65px;
+          background-color: var(--VeryDarkGrayishBlue);
+          color: var(--LightGrayishBlue);
+          display: flex;
+          border-radius: 1rem;
+        }
+        .share::after {
+          content: " ";
+          position: absolute;
+          top: 99%; /* At the bottom of the tooltip */
+          left: 80%;
+          margin-left: -15px;
+          border-width: 15px;
+          border-style: solid;
+          border-color: var(--VeryDarkGrayishBlue) transparent transparent
+            transparent;
+        }
+        .share-btn {
+          background-color: var(--DesaturatedDarkBlue);
+          color: var(--LightGrayishBlue);
+          .icon-share {
+            fill: var(--LightGrayishBlue);
+          }
+        }
+      }
+    }
+  }
+}
+
+.attribution {
+  background-color: #333;
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+  a {
+    color: white;
+  }
+}

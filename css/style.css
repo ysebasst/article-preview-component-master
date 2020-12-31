@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+:root {
+  --VeryDarkGrayishBlue: hsl(217, 19%, 35%);
+  --DesaturatedDarkBlue: hsl(214, 17%, 51%);
+  --GrayishBlue: hsl(212, 23%, 69%);
+  --LightGrayishBlue: hsl(210, 46%, 95%);
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+}
+
+main {
+  background-color: var(--LightGrayishBlue);
+  color: var(--VeryDarkGrayishBlue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 0 1.5rem;
+  max-width: 327px;
+}
+.card-header {
+  height: 200px;
+  overflow: hidden;
+}
+.card-header img {
+  display: block;
+  width: 100%;
+}
+.card-body-content {
+  padding: 1rem 2rem;
+}
+.card-body-content-title {
+  font-size: 0.95rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  margin-top: 1.25rem;
+}
+.card-body-content-text {
+  color: var(--DesaturatedDarkBlue);
+  font-size: 0.78rem;
+  line-height: 1.75em;
+  margin: 0;
+}
+.card-body-footer {
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-body-footer .description {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.card-body-footer .description-avatar {
+  display: block;
+  width: 40px;
+  border-radius: 50%;
+}
+.card-body-footer .description-info {
+  margin-left: 1rem;
+}
+.card-body-footer .description-info .name {
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 0.25rem;
+}
+.card-body-footer .description-info .date {
+  color: var(--GrayishBlue);
+  font-size: 0.75rem;
+}
+.card-body-footer .share {
+  flex: 1;
+  align-items: center;
+  display: none;
+}
+.card-body-footer .share .share-title {
+  margin: 0;
+  color: var(--GrayishBlue);
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  font-weight: 500;
+  font-size: 0.75rem;
+}
+.card-body-footer .share .share-social {
+  display: flex;
+  font-size: 1.25rem;
+}
+.card-body-footer .share .share-social a {
+  color: white;
+  margin-left: 1rem;
+}
+.card-body-footer .share-btn {
+  background-color: var(--LightGrayishBlue);
+  display: block;
+  cursor: pointer;
+  outline: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+.card-body #checkbox {
+  display: none;
+}
+@media screen and (max-width: 1023px) {
+  .card-body #checkbox:checked ~ .card-body-footer {
+    background-color: var(--VeryDarkGrayishBlue);
+    color: var(--LightGrayishBlue);
+    padding: 1rem 2rem;
+  }
+  .card-body #checkbox:checked ~ .card-body-footer .description {
+    display: none;
+  }
+  .card-body #checkbox:checked ~ .card-body-footer .share {
+    display: flex;
+  }
+  .card-body #checkbox:checked ~ .card-body-footer .share-btn {
+    background-color: var(--DesaturatedDarkBlue);
+    color: var(--LightGrayishBlue);
+  }
+  .card-body #checkbox:checked ~ .card-body-footer .share-btn .icon-share {
+    fill: var(--LightGrayishBlue);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .card {
+    max-width: 730px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 285px 1fr;
+  }
+  .card-header {
+    height: 280px;
+  }
+  .card-header img {
+    width: auto;
+    height: 280px;
+  }
+  .card-body #checkbox:checked ~ .card-body-footer {
+    position: relative;
+  }
+  .card-body #checkbox:checked ~ .card-body-footer .share {
+    position: absolute;
+    right: 0px;
+    bottom: 120%;
+    padding: 0 2rem;
+    height: 65px;
+    background-color: var(--VeryDarkGrayishBlue);
+    color: var(--LightGrayishBlue);
+    display: flex;
+    border-radius: 1rem;
+  }
+  .card-body #checkbox:checked ~ .card-body-footer .share::after {
+    content: " ";
+    position: absolute;
+    top: 99%;
+    /* At the bottom of the tooltip */
+    left: 80%;
+    margin-left: -15px;
+    border-width: 15px;
+    border-style: solid;
+    border-color: var(--VeryDarkGrayishBlue) transparent transparent transparent;
+  }
+  .card-body #checkbox:checked ~ .card-body-footer .share-btn {
+    background-color: var(--DesaturatedDarkBlue);
+    color: var(--LightGrayishBlue);
+  }
+  .card-body #checkbox:checked ~ .card-body-footer .share-btn .icon-share {
+    fill: var(--LightGrayishBlue);
+  }
+}
+
+.attribution {
+  background-color: #333;
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+}
+.attribution a {
+  color: white;
+}
+
+/*# sourceMappingURL=style.css.map */
